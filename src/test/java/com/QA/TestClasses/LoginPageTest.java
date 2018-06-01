@@ -13,43 +13,39 @@ public class LoginPageTest extends TestBaseClass {
 
 	LoginPage loginPage;
 	UserHomePage userhp;
-	
-	public LoginPageTest()
-	{
+
+	public LoginPageTest() {
 		super();
-	
+
 	}
-	
-	
+
 	@BeforeMethod()
-	public void setUp()
-	{
-	initialization();
-	loginPage = new LoginPage();	
-}
+	public void setUp() {
+		initialization();
+		loginPage = new LoginPage();
+	}
 
-@Test(priority=1)
-public void loginPageTitleTest(){
-	String title = loginPage.ValidateLoginPageTitle();
-	Assert.assertEquals(title, "Free CRM in the cloud software boosts sales");
-}
+	@Test(priority = 1)
+	public void loginPageTitleTest() {
+		String title = loginPage.ValidateLoginPageTitle();
+		Assert.assertEquals(title, "Free CRM software in the cloud powers sales and customer service",
+				"Page title not as per requirement");
+	}
 
-@Test(priority=2)
-public void crmLogoImageTest(){
-	boolean flag = loginPage.ValidateCRMLogo();
-	Assert.assertTrue(flag);
-}
+	@Test(priority = 2)
+	public void crmLogoImageTest() {
+		boolean flag = loginPage.ValidateCRMLogo();
+		Assert.assertTrue(flag);
+	}
 
-@Test(priority=3)
-public void loginTest(){
-	userhp = loginPage.VerifyUserLogin(prop.getProperty("username"), prop.getProperty("password"));
-}
+	@Test(priority = 3)
+	public void loginTest() {
+		userhp = loginPage.VerifyUserLogin(prop.getProperty("username"), prop.getProperty("password"));
+	}
 
+	@AfterMethod
+	public void tearDown() {
+		driver.quit();
+	}
 
-
-@AfterMethod
-public void tearDown(){
-	driver.quit();
-}
-	
 }

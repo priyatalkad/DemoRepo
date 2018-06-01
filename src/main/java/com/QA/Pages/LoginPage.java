@@ -1,5 +1,6 @@
 package com.QA.Pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -44,7 +45,8 @@ public class LoginPage extends TestBaseClass {
 	public UserHomePage VerifyUserLogin(String uname, String pword) {
 		username.sendKeys(uname);
 		password.sendKeys(pword);
-		loginBtn.click();
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+    	js.executeScript("arguments[0].click();", loginBtn);
 		return new UserHomePage();
 	}
 

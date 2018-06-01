@@ -8,8 +8,6 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-
 import com.QA.Utility.TimeOuts;
 
 public class TestBaseClass {
@@ -21,7 +19,7 @@ public class TestBaseClass {
 
 		try {
 			prop = new Properties();
-			FileInputStream ip = new FileInputStream(System.getProperty("C://Technical//Priya's Workspace//FreeCRM-POM//src//main//java//com//QA//Config//config.properties"));
+			FileInputStream ip = new FileInputStream("C://Technical//Priya's Workspace//FreeCRM-POM//src//main//java//com//QA//Config//config.properties");
 			prop.load(ip);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
